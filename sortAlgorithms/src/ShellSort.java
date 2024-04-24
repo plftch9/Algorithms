@@ -7,7 +7,7 @@ import SortFunctions.Utils;
 //contents of the file must be integers
 //this program will use shell sort to arrange the file contents in order
 //of smallest to largest, or largest to smallest
-//time complexity is O(n^2)
+//time complexity is O(n^2), but slightly optimized
 public class ShellSort {
 
     public static void main(String[] args) {
