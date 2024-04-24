@@ -16,7 +16,7 @@
             "name": "BubbleSort",
             "request": "launch",
             "mainClass": "BubbleSort",
-            "args" : ["arguments/integers.txt"],
+            "args" : ["sortAlgorithms/arguments/integers.txt"],
             "projectName": "sortAlgorithms_b1cd0179"
         },
         {
@@ -24,7 +24,15 @@
             "name": "SelectionSort",
             "request": "launch",
             "mainClass": "SelectionSort",
-            "args" : ["arguments/integers.txt"],
+            "args" : ["sortAlgorithms/arguments/integers.txt"],
+            "projectName": "sortAlgorithms_b1cd0179"
+        },
+        {
+            "type": "java",
+            "name": "InsertionSort",
+            "request": "launch",
+            "mainClass": "InsertionSort",
+            "args" : ["sortAlgorithms/arguments/integers.txt"],
             "projectName": "sortAlgorithms_b1cd0179"
         }
     ]
