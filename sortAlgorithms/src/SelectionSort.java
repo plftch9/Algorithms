@@ -3,6 +3,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import SortFunctions.Utils;
 
+//this class takes a filepath as a command line argument
+//contents of the file must be integers
+//this program will use selection sort to arrange the file contents in order
+//of smallest to largest, or largest to smallest
+//time complexity is O(n^2)
 public class SelectionSort {
 
     public static void main(String[] args) {
