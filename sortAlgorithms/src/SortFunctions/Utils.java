@@ -42,4 +42,19 @@ public class Utils {
             System.out.println(arr[i]);
         }
     }
+
+    public static int[] getMinMax(int[] arr) {
+        int[] minMax = new int[2];
+        for (int in = 0; in < arr.length; in++) {
+            if (minMax[0] < arr[in]) {
+                minMax[0] = arr[in];
+            }
+            if (minMax[1] > arr[in]) {
+                minMax[1] = arr[in];
+            }
+
+        }
+
+        return minMax;
+    }
 }
