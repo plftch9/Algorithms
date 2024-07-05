@@ -19,17 +19,23 @@ public class Utils {
     }
 
     public static int[] loadArray(File file) throws FileNotFoundException {
-
+        int[] numArray;
         Scanner fileScan = new Scanner(file);
-        int[] numArray = new int[10];
         int i = 0;
+        int j = 0;
         try {
+            while (fileScan.hasNextInt()) {
+                j++;
+            }
+            numArray = new int[j];
             while (fileScan.hasNextInt()) {
                 numArray[i] = fileScan.nextInt();
                 i++;
             }
         } catch (Exception e) {
             System.out.println(e.toString());
+            fileScan.close();
+            return numArray = new int[1];
         }
         fileScan.close();
 
