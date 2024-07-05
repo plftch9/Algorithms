@@ -4,7 +4,7 @@ import java.io.FileNotFoundException;
 import SortFunctions.Utils;
 
 //this class takes a filepath as a command line argument
-//contents of the file must be integers
+//contents of the file must be positive integers
 //this program will use counting sort to arrange the file contents in order
 //of smallest to largest, or largest to smallest
 //time complexity is O(n)
