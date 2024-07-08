@@ -1,5 +1,7 @@
 package SortFunctions;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.io.FileNotFoundException;
 import java.io.File;
 import java.util.Scanner;
@@ -19,26 +21,23 @@ public class Utils {
     }
 
     public static int[] loadArray(File file) throws FileNotFoundException {
-        int[] numArray;
+        List<Integer> numArrayList = new ArrayList<Integer>();
         Scanner fileScan = new Scanner(file);
-        int i = 0;
-        int j = 0;
         try {
+
             while (fileScan.hasNextInt()) {
-                j++;
-            }
-            numArray = new int[j];
-            while (fileScan.hasNextInt()) {
-                numArray[i] = fileScan.nextInt();
-                i++;
+                numArrayList.add(fileScan.nextInt());
             }
         } catch (Exception e) {
             System.out.println(e.toString());
             fileScan.close();
-            return numArray = new int[1];
         }
         fileScan.close();
 
+        int[] numArray = new int[numArrayList.size()];
+        for (int i = 0; i < numArrayList.size(); i++) {
+            numArray[i] = numArrayList.get(i);
+        }
         return numArray;
     }
 
@@ -62,5 +61,15 @@ public class Utils {
         }
 
         return minMax;
+    }
+
+    public static void reverseArray(int[] arr) {
+        int temp;
+
+        for (int i = 0; i < (int) arr.length / 2; i++) {
+            temp = arr[i];
+            arr[i] = arr[arr.length - 1 - i];
+            arr[arr.length - 1 - i] = temp;
+        }
     }
 }
