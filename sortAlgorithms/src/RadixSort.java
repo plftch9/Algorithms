@@ -20,7 +20,7 @@ public class RadixSort {
                 int[] fileArray = Utils.loadArray(new File(args[0]));
 
                 Scanner input = new Scanner(System.in);
-                System.out.println("Welcome to insertion sort program");
+                System.out.println("Welcome to radix sort program");
                 System.out.println("1. Sort from small -> large");
                 System.out.println("2. Sort from large -> small");
 
@@ -29,12 +29,12 @@ public class RadixSort {
 
                 switch (selection) {
                     case 1:
-                        // radixLarge(fileArray);
+                        radixLarge(fileArray, 10, 4);
                         Utils.displayResults(fileArray);
                         break;
 
                     case 2:
-                        // radixSmall(fileArray);
+                        radixSmall(fileArray, 10, 4);
                         Utils.displayResults(fileArray);
                         break;
 
@@ -52,12 +52,44 @@ public class RadixSort {
         }
     }
 
-    public static void radixLarge() {
+    public static void radixSmall(int[] arr, int radix, int width) {
+        for (int i = 0; i < width; i++) {
+            radixSingleSort(arr, i, radix);
+        }
 
+        Utils.reverseArray(arr);
     }
 
-    public static void radixSmall() {
+    public static void radixLarge(int[] arr, int radix, int width) {
+        for (int i = 0; i < width; i++) {
+            radixSingleSort(arr, i, radix);
+        }
+    }
 
+    public static void radixSingleSort(int[] arr, int position, int radix) {
+        int[] countArray = new int[radix];
+
+        for (int value : arr) {
+            countArray[getDigit(position, value, radix)]++;
+        }
+
+        for (int j = 1; j < radix; j++) {
+            countArray[j] += countArray[j - 1];
+        }
+
+        int[] temp = new int[arr.length];
+
+        for (int tempIndex = arr.length - 1; tempIndex >= 0; tempIndex--) {
+            temp[--countArray[getDigit(position, arr[tempIndex], radix)]] = arr[tempIndex];
+        }
+
+        for (int tempIndex = 0; tempIndex < arr.length; tempIndex++) {
+            arr[tempIndex] = temp[tempIndex];
+        }
+    }
+
+    public static int getDigit(int position, int value, int radix) {
+        return value / (int) Math.pow(radix, position) % radix;
     }
 
     // TODO: implement letter sorting
