@@ -19,7 +19,7 @@ public class ShellSort {
                 int[] fileArray = Utils.loadArray(new File(args[0]));
 
                 Scanner input = new Scanner(System.in);
-                System.out.println("Welcome to bubble sort program");
+                System.out.println("Welcome to shell sort program");
                 System.out.println("1. Sort from small -> large");
                 System.out.println("2. Sort from large -> small");
 

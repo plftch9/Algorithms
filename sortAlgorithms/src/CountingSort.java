@@ -21,7 +21,7 @@ public class CountingSort {
                 int[] minMax = Utils.getMinMax(fileArray);
 
                 Scanner input = new Scanner(System.in);
-                System.out.println("Welcome to insertion sort program");
+                System.out.println("Welcome to counting sort program");
                 System.out.println("1. Sort from small -> large");
                 System.out.println("2. Sort from large -> small");
 

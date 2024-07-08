@@ -23,6 +23,7 @@ public class InsertionSort {
                 System.out.println("Welcome to insertion sort program");
                 System.out.println("1. Sort from small -> large");
                 System.out.println("2. Sort from large -> small");
+                System.out.println("3. Recurrsive Sort");
 
                 int selection = input.nextInt();
                 input.close();
@@ -35,6 +36,11 @@ public class InsertionSort {
 
                     case 2:
                         insertionSmall(fileArray);
+                        Utils.displayResults(fileArray);
+                        break;
+
+                    case 3:
+                        insertionRecursive(fileArray, fileArray.length);
                         Utils.displayResults(fileArray);
                         break;
 
@@ -80,6 +86,24 @@ public class InsertionSort {
 
             arr[i] = newElement;
         }
+    }
+
+    public static void insertionRecursive(int[] arr, int numItems) {
+        if (numItems < 2) {
+            return;
+        }
+
+        insertionRecursive(arr, numItems - 1);
+
+        int newElement = arr[numItems - 1];
+
+        int i;
+
+        for (i = numItems - 1; i > 0 && arr[i - 1] < newElement; i--) {
+            arr[i] = arr[i - 1];
+        }
+
+        arr[i] = newElement;
     }
 
     // TODO: Add recursive implementation
